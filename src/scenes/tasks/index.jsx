@@ -3,8 +3,16 @@ import { DataGrid } from "@mui/x-data-grid";
 import { tokens } from "../../theme";
 import { mockDataInvoices } from "../../data/mockData";
 import Header from "../../components/Header";
+import { Button } from "@material-tailwind/react"
+import * as request from "../../controll/requests"
 
-const Invoices = () => {
+
+const Tasks = () => {
+  request.get('employee/readEmployee.php')
+  .then((res)=>{
+    console.log(res)
+  })
+
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const columns = [
@@ -42,9 +50,24 @@ const Invoices = () => {
     },
   ];
 
+  function assign_j(e){
+    e.preventDefault();
+    alert("hey");
+  }
+
+  function assign_c(e){
+    e.preventDefault();
+    alert("hey");
+  }
+
   return (
     <Box m="20px">
-      <Header title="INVOICES" subtitle="List of Invoice Balances" />
+      <Box className="grid grid-cols-3">
+        <Header title="Tasks" subtitle="Manage Task" />
+        <Button className="w-40 h-12 mt-5" variant="outlined" onClick={assign_j}>Assign Task For Janitors</Button>
+        <Button className="w-44 h-12 mt-5" variant="outlined" onClick={assign_c}>Assign Task For Collectors</Button>
+      </Box>
+      
       <Box
         m="40px 0 0 0"
         height="75vh"
@@ -80,4 +103,4 @@ const Invoices = () => {
   );
 };
 
-export default Invoices;
+export default Tasks;

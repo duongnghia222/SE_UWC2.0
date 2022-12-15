@@ -36,7 +36,7 @@ function readEmployee() {
 function readAllEmployee() {
  
     // select all query
-    $query = "SELECT username, name, role, status, email, phone_num FROM employee";
+    $query = "SELECT username, role, status, email, phone_num FROM employee";
  
     // prepare query statement
     $stmt = $this->conn->prepare($query);

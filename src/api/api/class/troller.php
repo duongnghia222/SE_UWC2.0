@@ -1,14 +1,13 @@
 <?php 
 
-class Employee {   
+class Troller {   
   
     private $conn;
     // private $table_name = "menu";
 
     // object properties
-    public $username;
-    public $role;
-    public $status;
+    public $troller_id;
+    public $area;
     
  
     // constructor with $db as database connection
@@ -18,25 +17,10 @@ class Employee {
 
 ////////////////////////////////////////////////////////////////////
 
-function readEmployee() {
+function readTroller() {
  
     // select all query
-    $query = "SELECT username, role, status FROM employee";
- 
-    // prepare query statement
-    $stmt = $this->conn->prepare($query);
-
- 
-    // execute query
-    $stmt->execute();
- 
-    return $stmt;
-}
-
-function readAllEmployee() {
- 
-    // select all query
-    $query = "SELECT username, name, role, status, email, phone_num FROM employee";
+    $query = "SELECT * FROM troller";
  
     // prepare query statement
     $stmt = $this->conn->prepare($query);
